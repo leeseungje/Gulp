@@ -59,6 +59,13 @@ gulp.task('clean', function () {
         .pipe(clean());
 });
 
+// 파일 변경 감지 paths.js, paths.css, paths.html 해당 경로의 파일들의 수정이 일어나면 해당 테스크가 실행된다.
+gulp.task('watch', function () {
+    gulp.watch(devPaths.js, ['combine-js']);
+    gulp.watch(devPaths.scss, ['compile-sass']);
+    gulp.watch(devPaths.html, ['html-move']);
+});
+
 gulp.task('compile', ['combine-js', 'compile-sass', 'html-move'], function(){
     gulp.start('server')
 });
