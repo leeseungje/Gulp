@@ -7,6 +7,7 @@
 .success {
   @extend .message;
   border-color: green;
+  background: #000;
 }
 
 .error {
